@@ -1,19 +1,15 @@
 language: cpp
 
-# addons:
-#   apt:
-#     sources:
-#       - ubuntu-toolchain-r-test
-
 before_install:
   - pip install --user cpp-coveralls
 
 before_script:
-  - mkdir build
-  - cd build
+  - mkdir "${TRAVIS_BUILD_DIR}/build"
+  - cd "${TRAVIS_BUILD_DIR}/build"
   - cmake ..
 
 script:
+  - cd "${TRAVIS_BUILD_DIR}/build"
   - make
   - ctest
 
