@@ -14,7 +14,7 @@ script:
   - ctest
 
 after_success:
-  - coveralls --root ..
+  - coveralls --root .. -e test --gcov-options '\-lpa'
 
 notifications:
   email: false
