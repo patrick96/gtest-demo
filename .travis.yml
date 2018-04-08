@@ -1,6 +1,3 @@
-sudo: required
-
-dist: trusty
 language: cpp
 
 addons:
@@ -12,9 +9,10 @@ before_install:
   - pip install --user cpp-coveralls
 
 script:
-  - cmake -H. -Bbuild
+  - mkdir build
   - cd build
-  - cmake --build .
+  - cmake ..
+  - make
   - ctest
 
 after_success:
@@ -22,20 +20,3 @@ after_success:
 
 notifications:
   email: false
-
-env:
-  global:
-    - LLVM_VERSION="3.8.1"
-    - LLVM_URL="http://llvm.org/releases/${LLVM_VERSION}/llvm-${LLVM_VERSION}.src.tar.xz"
-    - LIBCXX_URL="http://llvm.org/releases/${LLVM_VERSION}/libcxx-${LLVM_VERSION}.src.tar.xz"
-    - LIBCXXABI_URL="http://llvm.org/releases/${LLVM_VERSION}/libcxxabi-${LLVM_VERSION}.src.tar.xz"
-    - JOBS=4
-    - MAKEFLAGS="-j ${JOBS}"
-    - POLYBAR_BUILD_TYPE="compile"
-
-cache:
-  ccache: true
-  apt: true
-  directories:
-    - ${TRAVIS_BUILD_DIR}/deps/llvm-3.8.1/install
-    - ${TRAVIS_BUILD_DIR}/deps/xcb-util-xrm
