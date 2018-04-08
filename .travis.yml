@@ -39,6 +39,3 @@ cache:
   directories:
     - ${TRAVIS_BUILD_DIR}/deps/llvm-3.8.1/install
     - ${TRAVIS_BUILD_DIR}/deps/xcb-util-xrm
-
-install:
-  - mkdir -p "${DEPS_DIR}" && cd "${DEPS_DIR}"
