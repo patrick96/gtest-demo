@@ -29,7 +29,6 @@ env:
     - LLVM_URL="http://llvm.org/releases/${LLVM_VERSION}/llvm-${LLVM_VERSION}.src.tar.xz"
     - LIBCXX_URL="http://llvm.org/releases/${LLVM_VERSION}/libcxx-${LLVM_VERSION}.src.tar.xz"
     - LIBCXXABI_URL="http://llvm.org/releases/${LLVM_VERSION}/libcxxabi-${LLVM_VERSION}.src.tar.xz"
-    - PYTHONPATH="/usr/lib/python2.7/dist-packages:${PYTHONPATH}"
     - JOBS=4
     - MAKEFLAGS="-j ${JOBS}"
     - POLYBAR_BUILD_TYPE="compile"
